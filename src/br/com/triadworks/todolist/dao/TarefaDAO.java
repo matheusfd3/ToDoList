@@ -23,6 +23,7 @@ public class TarefaDAO {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, tarefa.getDescricao());
 			pstmt.setInt(2, tarefa.getUsuario().getId());
+			
 			pstmt.executeUpdate();
 			pstmt.close();
 
@@ -99,9 +100,9 @@ public class TarefaDAO {
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setInt(1, tarefa.getId());
+			
 			pstmt.executeUpdate();
 			pstmt.close();
-			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
