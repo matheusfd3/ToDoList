@@ -45,7 +45,7 @@ public class TarefaDAO {
 				tarefa = new Tarefa();
 				tarefa.setId(rs.getInt("id"));
 				tarefa.setDescricao(rs.getString("descricao"));
-				tarefa.setUsuario(new UsuarioDAO().getUsuario(rs.getInt("usuarioID")));
+				tarefa.setUsuario(new UsuarioDAO(connection).getUsuario(rs.getInt("usuarioID")));
 				
 				tarefas.add(tarefa);
 			}

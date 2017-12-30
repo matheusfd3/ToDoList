@@ -15,6 +15,10 @@ public class UsuarioDAO {
 		connection = new ConnectionFactory().getConnection();
 	}
 	
+	public UsuarioDAO(Connection connection) {
+		this.connection = connection;
+	}
+	
 	public Usuario getUsuario(Integer id) {
 		String sql = "select * from usuario where id = ?";
 		try {
