@@ -26,7 +26,6 @@ public class TarefaDAO {
 			
 			pstmt.executeUpdate();
 			pstmt.close();
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -49,6 +48,7 @@ public class TarefaDAO {
 				
 				tarefas.add(tarefa);
 			}
+			
 			rs.close();
 			pstmt.close();
 			return tarefas;
@@ -72,6 +72,7 @@ public class TarefaDAO {
 				tarefa.setDescricao(rs.getString("descricao"));
 				tarefa.setUsuario(new UsuarioDAO().getUsuario(rs.getInt("usuarioID")));
 			}
+			
 			rs.close();
 			pstmt.close();
 			return tarefa;
