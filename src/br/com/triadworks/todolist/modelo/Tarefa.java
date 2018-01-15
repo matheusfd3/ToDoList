@@ -2,7 +2,7 @@ package br.com.triadworks.todolist.modelo;
 
 public class Tarefa {
 
-	private Integer id;
+	private Long id;
 	private String descricao;
 	private Usuario usuario;
 	
@@ -10,11 +10,11 @@ public class Tarefa {
 		
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

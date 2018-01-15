@@ -16,13 +16,17 @@ public class TarefaDAO {
 	public TarefaDAO() {
 		connection = new ConnectionFactory().getConnection();
 	}
+	
+	public TarefaDAO(Connection connection) {
+		this.connection = connection;
+	}
 
 	public void adiciona(Tarefa tarefa) {
 		String sql = "insert into tarefa (descricao, usuarioID) values (?,?)";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, tarefa.getDescricao());
-			pstmt.setInt(2, tarefa.getUsuario().getId());
+			pstmt.setLong(2, tarefa.getUsuario().getId());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -31,7 +35,7 @@ public class TarefaDAO {
 		}
 	}
 
-	public List<Tarefa> getTarefas() {
+	public List<Tarefa> getLista() {
 		String sql = "select * from tarefa";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -42,9 +46,9 @@ public class TarefaDAO {
 			
 			while(rs.next()) {
 				tarefa = new Tarefa();
-				tarefa.setId(rs.getInt("id"));
+				tarefa.setId(rs.getLong("id"));
 				tarefa.setDescricao(rs.getString("descricao"));
-				tarefa.setUsuario(new UsuarioDAO(connection).getUsuario(rs.getInt("usuarioID")));
+				tarefa.setUsuario(new UsuarioDAO(connection).getUsuario(rs.getLong("usuarioID")));
 				
 				tarefas.add(tarefa);
 			}
@@ -57,20 +61,20 @@ public class TarefaDAO {
 		}
 	}
 
-	public Tarefa getTarefa(Integer id) {
+	public Tarefa getTarefa(Long id) {
 		String sql = "select * from tarefa where id = ?";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setLong(1, id);
 			
 			ResultSet rs = pstmt.executeQuery();
 			Tarefa tarefa = null;
 			
 			if(rs.next()) {
 				tarefa = new Tarefa();
-				tarefa.setId(rs.getInt("id"));
+				tarefa.setId(rs.getLong("id"));
 				tarefa.setDescricao(rs.getString("descricao"));
-				tarefa.setUsuario(new UsuarioDAO().getUsuario(rs.getInt("usuarioID")));
+				tarefa.setUsuario(new UsuarioDAO(connection).getUsuario(rs.getLong("usuarioID")));
 			}
 			
 			rs.close();
@@ -86,8 +90,8 @@ public class TarefaDAO {
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, tarefa.getDescricao());
-			pstmt.setInt(2, tarefa.getUsuario().getId());
-			pstmt.setInt(3, tarefa.getId());
+			pstmt.setLong(2, tarefa.getUsuario().getId());
+			pstmt.setLong(3, tarefa.getId());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -100,7 +104,7 @@ public class TarefaDAO {
 		String sql = "delete from tarefa where id = ?";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
-			pstmt.setInt(1, tarefa.getId());
+			pstmt.setLong(1, tarefa.getId());
 			
 			pstmt.executeUpdate();
 			pstmt.close();

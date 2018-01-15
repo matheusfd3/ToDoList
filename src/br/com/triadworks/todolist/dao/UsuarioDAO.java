@@ -19,19 +19,20 @@ public class UsuarioDAO {
 		this.connection = connection;
 	}
 	
-	public Usuario getUsuario(Integer id) {
+	public Usuario getUsuario(Long id) {
 		String sql = "select * from usuario where id = ?";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setLong(1, id);
 			
 			Usuario usuario = null;
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				usuario = new Usuario();
-				usuario.setId(id);
-				usuario.setLogin(rs.getString("login"));
+				usuario.setId(rs.getLong("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setUsuario(rs.getString("usuario"));
 				usuario.setSenha(rs.getString("senha"));
 			}
 			

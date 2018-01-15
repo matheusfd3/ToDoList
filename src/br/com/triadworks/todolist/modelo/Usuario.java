@@ -2,28 +2,37 @@ package br.com.triadworks.todolist.modelo;
 
 public class Usuario {
 
-	private Integer id;
-	private String login;
+	private Long id;
+	private String nome;
+	private String usuario;
 	private String senha;
 
 	public Usuario() {
 
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {
