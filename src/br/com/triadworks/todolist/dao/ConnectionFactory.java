@@ -8,6 +8,7 @@ public class ConnectionFactory {
 
 	public Connection getConnection() {
 		try {
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 			return DriverManager.getConnection("jdbc:mysql://localhost/ToDoList", "root", "root");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

@@ -11,12 +11,34 @@ public class UsuarioDAO {
 	
 	private Connection connection;
 	
-	public UsuarioDAO() {
-		connection = new ConnectionFactory().getConnection();
-	}
-	
 	public UsuarioDAO(Connection connection) {
 		this.connection = connection;
+	}
+	
+	public Usuario Autentica(String username, String senha) {
+		String sql = "select * from usuario where username = ? and senha = ?";
+		try {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setString(1, username);
+			pstmt.setString(2, senha);
+			
+			ResultSet rs = pstmt.executeQuery();
+			Usuario usuario = null;
+			
+			if(rs.next()) {
+				usuario = new Usuario();
+				usuario.setId(rs.getLong("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setUsername(rs.getString("username"));
+			}
+			
+			rs.close();
+			pstmt.close();
+			return usuario;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
 	}
 	
 	public Usuario getUsuario(Long id) {
@@ -32,8 +54,7 @@ public class UsuarioDAO {
 				usuario = new Usuario();
 				usuario.setId(rs.getLong("id"));
 				usuario.setNome(rs.getString("nome"));
-				usuario.setUsuario(rs.getString("usuario"));
-				usuario.setSenha(rs.getString("senha"));
+				usuario.setUsername(rs.getString("username"));
 			}
 			
 			rs.close();

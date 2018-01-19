@@ -12,10 +12,6 @@ import br.com.triadworks.todolist.modelo.Tarefa;
 public class TarefaDAO {
 
 	private Connection connection;
-
-	public TarefaDAO() {
-		connection = new ConnectionFactory().getConnection();
-	}
 	
 	public TarefaDAO(Connection connection) {
 		this.connection = connection;

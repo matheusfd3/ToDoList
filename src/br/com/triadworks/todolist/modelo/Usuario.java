@@ -4,7 +4,7 @@ public class Usuario {
 
 	private Long id;
 	private String nome;
-	private String usuario;
+	private String username;
 	private String senha;
 
 	public Usuario() {
@@ -27,12 +27,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getSenha() {
