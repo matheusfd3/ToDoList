@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -29,7 +30,11 @@ public class AutorizacaoFilter implements Filter {
 		String uri = req.getRequestURI();
 		String logica = req.getParameter("logica");
 		
-		if(logica.equals("AutenticarUsuario") || uri.endsWith("login.jsp")) {
+		if(logica == null) {
+			logica = "";
+		}
+		
+		if(logica.equals("AutenticaUsuario") || uri.endsWith("login.jsp") || uri.endsWith("informacoes-sistema.jsp") || uri.endsWith("desenvolvedor.jsp") || uri.endsWith(".jpg")) {
 			chain.doFilter(request, response);
 		}else {
 			Usuario usuarioLogado = (Usuario)req.getSession().getAttribute("usuarioLogado");
@@ -37,7 +42,9 @@ public class AutorizacaoFilter implements Filter {
 			if(usuarioLogado != null) {
 				chain.doFilter(request, response);
 			}else {
-				res.sendRedirect("/login.jsp");
+				req.setAttribute("mensagem", "Você não tem permissão para acessar essa página");
+				RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+				rd.forward(req, res);
 			}
 		}
 		

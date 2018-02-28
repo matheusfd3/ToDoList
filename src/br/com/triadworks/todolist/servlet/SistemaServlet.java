@@ -18,7 +18,7 @@ public class SistemaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String nomeClasse = "br.com.triadworks.javaweb.modelo." + request.getParameter("logica") + "Logica";
+		String nomeClasse = "br.com.triadworks.todolist.modelo." + request.getParameter("logica") + "Logica";
 		
 		try {
 			Class<?> classe = Class.forName(nomeClasse);
@@ -30,6 +30,8 @@ public class SistemaServlet extends HttpServlet {
 		} catch (InstantiationException e) {
 			throw new RuntimeException(e.getMessage());
 		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e.getMessage());
+		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
 		
