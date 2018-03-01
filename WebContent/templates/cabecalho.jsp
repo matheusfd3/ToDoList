@@ -10,7 +10,7 @@
       				<a class="nav-link" href="login.jsp">Login</a>
     			</li>
     			<li class="nav-item">
-      				<a class="nav-link" href="informacoes-sistema.jsp">Informações</a>
+      				<a class="nav-link" href="documentacao.jsp">Documentação</a>
     			</li>
     			<li class="nav-item">
       				<a class="nav-link" href="desenvolvedor.jsp">Desenvolvedor</a>
@@ -23,7 +23,7 @@
       				<a class="nav-link" href="home-usuario.jsp">Home</a>
     			</li>
 		    	<li class="nav-item">
-		      		<a class="nav-link" href="informacoes-sistema.jsp">Informações</a>
+		      		<a class="nav-link" href="documentacao.jsp">Documentação</a>
 		    	</li>
 		    	<li class="nav-item">
 		      		<a class="nav-link" href="desenvolvedor.jsp">Desenvolvedor</a>

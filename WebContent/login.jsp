@@ -12,27 +12,27 @@
 	<c:import url="templates/cabecalho.jsp"/>
 	
 	<section class="row">
-		<div class="col"></div>
-  		<div class="col">
+		<div class="col-sm-4"></div>
+  		<div class="col-sm-4">
   		
-  		<form action="sistema?logica=AutenticaUsuario" method="POST" style="margin-top: 10px;">
+  		<p id="mensagem" class="bg-danger">${requestScope.mensagem}</p>
+  		<form action="sistema?logica=AutenticaUsuario" method="POST">
 			<div class="form-group">
 				<label for="inputUsername">Username: </label>
-				<input id="inputUsername" class="form-control" type="text" name="username">
+				<input id="inputUsername" class="form-control" type="text" placeholder="insira nome de usuário" name="username">
 			</div>
 			<div class="form-group">
 				<label for="inputSenha">Senha: </label>
-				<input id="inputSenha" class="form-control" type="password" name="senha">
+				<input id="inputSenha" class="form-control" type="password" placeholder="digite a senha" name="senha">
 			</div>
 			<input class="btn btn-primary" type="submit" value="Logar">
 		</form>
-  		${requestScope.mensagem}
+  		
   		</div>
-  		<div class="col"></div>
+  		<div class="col-sm-4"></div>
 	</section>
 	
 	<c:import url="templates/rodape.jsp"/>
 	
 </body>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </html>
