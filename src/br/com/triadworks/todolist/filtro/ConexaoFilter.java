@@ -23,17 +23,23 @@ public class ConexaoFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		Connection connection = new ConnectionFactory().getConnection();
+		String logica = request.getParameter("logica");
 		
-		request.setAttribute("connection", connection);
-		
-		chain.doFilter(request, response);
-		
-		try {
-			connection.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e.getMessage());
+		if(logica.equals("LogoutUsuario")) {
+			chain.doFilter(request, response);
+		}else {
+			Connection connection = new ConnectionFactory().getConnection();
+			request.setAttribute("connection", connection);
+			
+			chain.doFilter(request, response);
+			
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
 		}
+		
 	}
 
 	

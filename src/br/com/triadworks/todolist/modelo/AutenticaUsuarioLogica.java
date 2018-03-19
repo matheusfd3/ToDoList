@@ -22,10 +22,10 @@ public class AutenticaUsuarioLogica implements Logica{
 		
 		if(usuario != null) {
 			request.getSession().setAttribute("usuarioLogado", usuario);
-			response.sendRedirect("home-usuario.jsp");
+			response.sendRedirect("/sistema?logica=ListaTarefa");
 		}else {
 			request.setAttribute("mensagem", "Usuário ou senha inválido");
-			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		}
 		

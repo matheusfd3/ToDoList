@@ -34,7 +34,7 @@ public class AutorizacaoFilter implements Filter {
 			logica = "";
 		}
 		
-		if(logica.equals("AutenticaUsuario") || uri.endsWith("login.jsp") || uri.endsWith("documentacao.jsp") || uri.endsWith("desenvolvedor.jsp") || uri.endsWith(".jpg") || uri.endsWith(".png") || uri.endsWith(".css")) {
+		if(logica.equals("AutenticaUsuario") || uri.endsWith("index.jsp") || uri.endsWith("documentacao.jsp") || uri.endsWith("desenvolvedor.jsp") || uri.endsWith(".jpg") || uri.endsWith(".png") || uri.endsWith(".ico") || uri.endsWith(".css")) {
 			chain.doFilter(request, response);
 		}else {
 			Usuario usuarioLogado = (Usuario)req.getSession().getAttribute("usuarioLogado");
@@ -43,7 +43,7 @@ public class AutorizacaoFilter implements Filter {
 				chain.doFilter(request, response);
 			}else {
 				req.setAttribute("mensagem", "Você precisa estar logado para acessar aquela página");
-				RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+				RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 				rd.forward(req, res);
 			}
 		}

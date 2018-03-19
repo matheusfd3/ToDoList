@@ -4,8 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Menu - ${usuarioLogado.nome}</title>
-	<link rel="shortcut icon" href="imagens/favicon.ico">
+	<title>Home - ${usuarioLogado.nome}</title>
 </head>
 <body>
 	<c:import url="templates/cabecalho.jsp"/>
