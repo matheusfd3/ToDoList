@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.triadworks.todolist.modelo.Tarefa;
+import br.com.triadworks.todolist.modelo.Usuario;
 
 public class TarefaDAO {
 
@@ -31,10 +32,12 @@ public class TarefaDAO {
 		}
 	}
 
-	public List<Tarefa> getLista() {
-		String sql = "select * from tarefa";
+	public List<Tarefa> getListaDeTarefaDoUsuario(Usuario usuario) {
+		String sql = "select * from tarefa where usuarioID = ?";
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(sql);
+			pstmt.setLong(1, usuario.getId());
+			
 			ResultSet rs = pstmt.executeQuery();
 			
 			List<Tarefa> tarefas = new ArrayList<>();

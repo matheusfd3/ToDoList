@@ -7,6 +7,12 @@
 	<title>ToDoList - error-404</title>
 </head>
 <body>
-
+	<c:import url="../templates/cabecalho.jsp"/>
+		
+	<section class="container">
+		<img alt="erro-404" src="imagens/Erro-404.png" width="100%">
+	</section>
+		
+	<c:import url="../templates/rodape.jsp"/>
 </body>
 </html>

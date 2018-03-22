@@ -42,7 +42,7 @@ public class AutorizacaoFilter implements Filter {
 			if(usuarioLogado != null) {
 				chain.doFilter(request, response);
 			}else {
-				req.setAttribute("mensagem", "Você precisa estar logado para acessar aquela página");
+				req.setAttribute("mensagem", "Acesso permitido somente a usuários autorizados");
 				RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 				rd.forward(req, res);
 			}

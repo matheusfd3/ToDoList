@@ -13,14 +13,21 @@ footer p {
 }
 
 #div-img-desenvolvedor {
-	position: relative;
-	float: left;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
-#div-conteudo-desenvolvedor {
-	position: relative;
-	float: left;
-	margin-left: 10px;
+th, td{
+	text-align: center;
+}
+
+.largura {
+	width: 80%;
+}
+
+table {
 	margin-top: 20px;
+}
+
+section {
+	min-height: 35%;
 }
