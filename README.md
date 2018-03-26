@@ -40,8 +40,8 @@ CREATE TABLE `ToDoList`.`usuario` (
   `nome` VARCHAR(25) NOT NULL,
   `username` VARCHAR(25) NOT NULL,
   `senha` VARCHAR(25) NOT NULL,
-  UNIQUE KEY (`username`),
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`username`));
   
   INSERT INTO `ToDoList`.`usuario` (`nome`, `username`, `senha`) VALUES ('admin', 'admin', '123456');
 ```
