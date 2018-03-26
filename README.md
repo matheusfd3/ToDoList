@@ -2,7 +2,7 @@
 ## Descrição
 Projeto Started - ToDOList - Triadworks 2017
 
-A idéia era de se realizar o projeto prático para que eu possa aplicar os conceitos de JavaEE (MVC Action Based, JSP, JSTL, CSS, JavaScript e etc).
+A idéia era de se realizar o projeto para que eu pudesse aplicar os conceitos de JavaEE (MVC Action Based, JSP, JSTL, CSS, JavaScript e etc).
 
 ## Requisitos
 ```
