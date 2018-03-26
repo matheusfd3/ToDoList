@@ -38,9 +38,9 @@ CREATE SCHEMA `ToDoList`;
 CREATE TABLE `ToDoList`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(25) NOT NULL,
-  `username` VARCHAR(25) UNIQUE NOT NULL,
+  `username` VARCHAR(25) NOT NULL,
   `senha` VARCHAR(25) NOT NULL,
-  UNIQUE(`username`),
+  UNIQUE KEY (`username`),
   PRIMARY KEY (`id`));
   
   INSERT INTO `ToDoList`.`usuario` (`nome`, `username`, `senha`) VALUES ('admin', 'admin', '123456');
