@@ -38,10 +38,10 @@ CREATE SCHEMA `ToDoList`;
 CREATE TABLE `ToDoList`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(25) NOT NULL,
-  `username` VARCHAR(25) UNIQUE KEY NOT NULL,
+  `username` VARCHAR(25) NOT NULL,
   `senha` VARCHAR(25) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY (`username`));
+  UNIQUE KEY (`username`),
+  PRIMARY KEY (`id`));
   
   INSERT INTO `ToDoList`.`usuario` (`nome`, `username`, `senha`) VALUES ('admin', 'admin', '123456');
 ```
