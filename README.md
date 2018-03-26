@@ -57,7 +57,7 @@ CREATE TABLE `ToDoList`.`tarefa` (
 
 ### Primeiro Acesso
 - Inicialize o seu TomCat
-- Após ter subido o seu Tomcat, acesse a pagina do projeto: [localhost:8080/ToDOList/index.jsp](localhost:8080/ToDOList/index.jsp)
+- Após ter subido o seu Tomcat, acesse a pagina do projeto: [http://localhost:8080/ToDOList/index.jsp](localhost:8080/ToDOList/index.jsp)
 - Dados de acesso:
   - Login: admin
   - Senha: 123456
