@@ -38,12 +38,10 @@ CREATE SCHEMA `ToDoList`;
 CREATE TABLE `ToDoList`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(25) NOT NULL,
-  `username` VARCHAR(25) NOT NULL,
+  `username` VARCHAR(25) UNIQUE NOT NULL,
   `senha` VARCHAR(25) NOT NULL,
   UNIQUE(`username`),
   PRIMARY KEY (`id`));
-
-  ALTER TABLE `ToDoList`.`usuario` ADD CONSTRAINT suaConstraint UNIQUE (RA, email);
   
   INSERT INTO `ToDoList`.`usuario` (`nome`, `username`, `senha`) VALUES ('admin', 'admin', '123456');
 ```
