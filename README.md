@@ -1,8 +1,8 @@
 # ToDoList
 ## Descrição
-Projeto CrossCode - Triadworks 2017
+Projeto Started - ToDOList - Triadworks 2017
 
-O projeto ToDoList trata-se de um projeto exemplo a ser implementado no curso de CrossCode da Triadworks. A idéia era de se realizar o projeto prático para que possamos aplicar os conceitos de JavaEE (MVC Action Based, JSP, JSTL, CSS, JavaScript e etc).
+A idéia era de se realizar o projeto prático para que eu possa aplicar os conceitos de JavaEE (MVC Action Based, JSP, JSTL, CSS, JavaScript e etc).
 
 ## Requisitos
 ```
@@ -37,12 +37,14 @@ CREATE SCHEMA `ToDoList`;
 ```sql
 CREATE TABLE `ToDoList`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(255) NOT NULL,
-  `username` VARCHAR(255) NOT NULL,
-  `senha` VARCHAR(16) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC));
+  `nome` VARCHAR(25) NOT NULL,
+  `username` VARCHAR(25) NOT NULL,
+  `senha` VARCHAR(25) NOT NULL,
+  UNIQUE(`username`),
+  PRIMARY KEY (`id`));
 
+  ALTER TABLE `ToDoList`.`usuario` ADD CONSTRAINT suaConstraint UNIQUE (RA, email);
+  
   INSERT INTO `ToDoList`.`usuario` (`nome`, `username`, `senha`) VALUES ('admin', 'admin', '123456');
 ```
 - Tarefa
@@ -51,5 +53,13 @@ CREATE TABLE `ToDoList`.`tarefa` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(70) NOT NULL,
   `usuarioID` INT NOT NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`usuarioID`) REFERENCES usuario(`id`));
 ```
+
+### Primeiro Acesso
+- Inicialize o seu TomCat
+- Após ter subido o seu Tomcat, acesse a pagina do projeto: [http://localhost:8080/ToDOList/index.jsp](http://localhost:8080/ToDOList/index.jsp)
+- Dados de acesso:
+  - Login: admin
+  - Senha: 123456
