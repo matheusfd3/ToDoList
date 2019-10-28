@@ -61,3 +61,6 @@ CREATE TABLE `ToDoList`.`tarefa` (
 - Dados de acesso:
   - Login: admin
   - Senha: 123456
+  
+## Contribuções
+Projeto implementado sob supervisão dos professores [Handerson Frota](https://github.com/handersonbf) e [Kewerson Hugo](https://github.com/kewersonhugo)
