@@ -56,7 +56,7 @@ CREATE TABLE `ToDoList`.`tarefa` (
   FOREIGN KEY (`usuarioID`) REFERENCES usuario(`id`));
 ```
 
-### Primeiro Acesso
+### Primeiro Acesso:
 - Inicialize o seu TomCat e o seu Mysql
 - Após ter subido o seu Tomcat, acesse a pagina do projeto: [http://localhost:8080/ToDoList/index.jsp](http://localhost:8080/ToDoList/index.jsp)
 - Dados de acesso:
